@@ -1,6 +1,11 @@
 class vim_config {
 
-  file { "/home/$id/.vim":
+  $homedir = $id ? {
+    root    => '',
+    default => '/home'
+  }
+
+  file { "$homedir/$id/.vim":
     owner => "$id",
     group => "$id",
     mode => 755,
@@ -9,14 +14,14 @@ class vim_config {
     source => "puppet:///modules/vim_config/.vim",
   }
 
-  file { "/home/$id/.vimrc":
+  file { "$homedir/$id/.vimrc":
     owner => "$id",
     group => "$id",
     mode => 644,
     source => "puppet:///modules/vim_config/.vimrc",
   }
 
-  file { "/home/$id/.local.vimrc":
+  file { "$homedir/$id/.local.vimrc":
     owner => "$id",
     group => "$id",
     mode => 644,
