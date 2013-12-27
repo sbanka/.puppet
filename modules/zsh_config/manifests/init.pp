@@ -9,7 +9,7 @@ class zsh_config {
     ensure   => present,
     provider => git,
     source   => 'git://github.com/robbyrussell/oh-my-zsh.git',
-    path     => '~/.oh-my-zsh'
+    path     => "${homedir}/${id}/.oh-my-zsh"
   }
   
 }
