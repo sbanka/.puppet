@@ -1,26 +1,16 @@
-$mainUser = "alexishevia"
+# $mainUser = "simon"
+$mainUser = $id
 
 $desiredPackages = [
-  'build-essential',
   'git',
-  'git-core',
-  'gitk',
-  'vim-gnome',
-  'ack-grep',
-  'ncurses-term',
-  'xclip',
-  'terminator',
-  'dconf-tools',
-  'unzip',
-  'libjpeg62',
-  'libwebkitgtk-1.0-0',
-  'unrar',
-  'compizconfig-settings-manager',
-  'virtualbox',
-  's3cmd'
+  'atop',
+  'mtr',
+  'mc'
 ]
 
-$undesiredPackages = ['avahi-daemon']
+# $undesiredPackages = [
+#   'avahi-daemon'
+# ]
 
 package { $desiredPackages:
   ensure => installed
@@ -30,8 +20,8 @@ package { $undesiredPackages:
   ensure => purged
 }
 
-class { 'vagrant':
-  version => '1.2.7'
-}
+# class { 'vagrant':
+#   version => '1.2.7'
+# }
 
-include google-chrome
+# include google-chrome
