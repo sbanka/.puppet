@@ -7,8 +7,9 @@ class ssh_keys_config {
   }
 
   file { "${homedir}/${id}/.ssh/authorized_keys":
-    mode   => '600',
-    owner  => $id,
+    ensure  => present,
+    mode    => '600',
+    owner   => $id,
     require => File["${homedir}/${id}/.ssh"]
   }
   
