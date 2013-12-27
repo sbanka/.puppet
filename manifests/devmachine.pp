@@ -1,1 +1,2 @@
 include vim_config
+include zsh_config
