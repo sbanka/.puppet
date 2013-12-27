@@ -14,7 +14,8 @@ class zsh_config {
   
   exec { 'copy-default-zshrc':
     command  => "cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc",
-    # path     => ['/usr/local/bin', '/bin', '/usr/bin']
+    # path     => ['/usr/local/bin', '/bin', '/usr/bin'],
+    provider => 'shell',
     require  => Vcsrepo['oh-my-zsh']
   }
   
