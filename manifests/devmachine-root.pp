@@ -8,9 +8,9 @@ $desiredPackages = [
   'mc'
 ]
 
-# $undesiredPackages = [
-#   'avahi-daemon'
-# ]
+$undesiredPackages = [
+  'dummypackage'
+]
 
 package { $desiredPackages:
   ensure => installed
