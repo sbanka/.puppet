@@ -1,10 +1,5 @@
 class vim_config {
 
-  $homedir = $id ? {
-    root    => '',
-    default => '/home'
-  }
-
   file { "$homedir/$id/.vim":
     owner => "$id",
     #group => "$id",
