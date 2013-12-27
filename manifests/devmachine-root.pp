@@ -1,6 +1,6 @@
 case $::osfamily {
   'FreeBSD': { 
-    include pkgng,
+    include pkgng
     Package { provider => pkgng}
   }
 }
