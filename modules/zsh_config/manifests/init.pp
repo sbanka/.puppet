@@ -24,7 +24,7 @@ class zsh_config {
     path    => "${homedir}/${id}/.zshrc",
     require => Exec['copy-default-zshrc'],
     line    => 'export SOLARIZED_THEME=light',
-    after   => '11',
+    after   => '^ZSH_THEME',
   }
   
 }
