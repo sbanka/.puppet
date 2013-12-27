@@ -1,3 +1,10 @@
+case $::osfamily {
+  'FreeBSD': { 
+    include pkgng,
+    Package { provider => pkgng}
+  }
+}
+
 # $mainUser = "simon"
 $mainUser = $id
 
@@ -23,5 +30,3 @@ package { $desiredPackages:
 # class { 'vagrant':
 #   version => '1.2.7'
 # }
-
-# include google-chrome
