@@ -13,6 +13,12 @@ class zsh_config {
     require  => Vcsrepo['oh-my-zsh']
   }
   
+  exec { 'set-default-shell-zsh':
+    command  => "chsh -s zsh ${id}",
+    path     => '/usr/bin',
+    require  => Vcsrepo['oh-my-zsh']
+  }
+  
   file_line { 'zsh-theme':
     path    => "${homedir}/${id}/.zshrc",
     require => Exec['copy-default-zshrc'],
