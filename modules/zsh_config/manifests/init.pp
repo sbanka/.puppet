@@ -25,6 +25,13 @@ class zsh_config {
     match   => '^ZSH_THEME',
   }
   
+  file_line { 'zsh-theme-color':
+    path    => "${homedir}/${id}/.zshrc",
+    require => Exec['copy-default-zshrc'],
+    line    => 'export SOLARIZED_THEME=light',
+    after   => '^ZSH_THEME',
+  }
+  
   # augeas { 'zshrc':
   #   context => "${homedir}/${id}/.zshrc",
   #   require  => Exec['copy-default-zshrc'],
