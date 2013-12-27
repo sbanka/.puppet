@@ -8,17 +8,17 @@ $desiredPackages = [
   'mc'
 ]
 
-$undesiredPackages = [
-  'dummypackage'
-]
+# $undesiredPackages = [
+#   'dummypackage'
+# ]
 
 package { $desiredPackages:
   ensure => installed
 }
 
-package { $undesiredPackages:
-  ensure => purged
-}
+# package { $undesiredPackages:
+#   ensure => purged
+# }
 
 # class { 'vagrant':
 #   version => '1.2.7'
