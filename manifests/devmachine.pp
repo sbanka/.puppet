@@ -5,3 +5,4 @@ $homedir = $id ? {
 
 include vim_config
 include zsh_config
+include ssh_keys_config
