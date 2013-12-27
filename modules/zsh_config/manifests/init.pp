@@ -18,4 +18,11 @@ class zsh_config {
     require  => Vcsrepo['oh-my-zsh']
   }
   
+  augeas { 'zshrc':
+    context => "${homedir}/${id}/.zshrc",
+    require  => Exec['copy-default-zshrc']
+    changes => [
+      "set ZSH_THEME blinks",
+    ],
+  }
 }
