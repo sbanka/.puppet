@@ -13,8 +13,7 @@ class zsh_config {
   }
   
   exec { 'copy-default-zshrc':
-    command  => "cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc",
-    # path     => ['/usr/local/bin', '/bin', '/usr/bin'],
+    command  => "cp ${homedir}/${id}/.oh-my-zsh/templates/zshrc.zsh-template ${homedir}/${id}/.zshrc",
     provider => 'shell',
     require  => Vcsrepo['oh-my-zsh']
   }
