@@ -5,9 +5,11 @@ class zsh_config {
   #   path     => ['/usr/local/bin', '/bin', '/usr/bin']
   # }
   
-  exec { 'download-ohmyzsh':
-    command  => "git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh",
-    path     => ['/usr/local/bin', '/bin', '/usr/bin']
+  vcsrepo { 'oh-my-zsh':
+    ensure   => present,
+    provider => git,
+    source   => 'git://github.com/robbyrussell/oh-my-zsh.git',
+    path     => '~/.oh-my-zsh'
   }
   
 }
