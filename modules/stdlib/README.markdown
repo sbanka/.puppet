@@ -17,7 +17,7 @@ Puppet Labs writes and distributes will make heavy use of this standard
 library.
 
 To report or research a bug with any part of this module, please go to
-[http://projects.puppetlabs.com/projects/stdlib](http://projects.puppetlabs.com/projects/stdlib)
+[http://tickets.puppetlabs.com/browse/PUP](http://tickets.puppetlabs.com/browse/PUP)
 
 # Versions #
 
@@ -31,8 +31,9 @@ list of integration branches are:
  * v2.1.x (v2.1.1 released in PE 1)
  * v2.2.x (Never released as part of PE, only to the Forge)
  * v2.3.x (Released in PE 2)
- * v3.0.x (Never released as part of PE, only to the Forge)
- * v4.0.x (Drops support for Puppet 2.7)
+ * v3.0.x (Released in PE 3)
+ * v4.0.x (Maintains compatibility with v3.x despite the major semantic version bump.  Compatible with Puppet 2.7.x)
+ * v5.x (To be released when stdlib can drop support for Puppet 2.7.x.  Please see [this discussion](https://github.com/puppetlabs/puppetlabs-stdlib/pull/176#issuecomment-30251414))
  * master (mainline development branch)
 
 The first Puppet Enterprise version including the stdlib module is Puppet
@@ -44,7 +45,7 @@ Puppet Versions | < 2.6 | 2.6 | 2.7 | 3.x |
 :---------------|:-----:|:---:|:---:|:----:
 **stdlib 2.x**  | no    | **yes** | **yes** | no
 **stdlib 3.x**  | no    | no  | **yes** | **yes**
-**stdlib 4.x**  | no    | no  | no  | **yes**
+**stdlib 4.x**  | no    | no  | **yes** | **yes**
 
 The stdlib module does not work with Puppet versions released prior to Puppet
 2.6.0.
@@ -60,8 +61,10 @@ supports Puppet 2 and Puppet 3.
 
 ## stdlib 4.x ##
 
-The 4.0 major release of stdlib drops support for Puppet 2.7.  Stdlib 4.x
-supports Puppet 3.  Notably, ruby 1.8.5 is no longer supported though ruby
+The 4.0 major release of stdlib was intended to drop support for Puppet 2.7,
+but the impact on end users was too high.  The decision was made to treat
+stdlib 4.x as a continuation of stdlib 3.x support.  Stdlib 4.x supports Puppet
+2.7 and 3.  Notably, ruby 1.8.5 is no longer supported though ruby
 1.8.7, 1.9.3, and 2.0.0 are fully supported.
 
 # Functions #
@@ -405,12 +408,16 @@ Returns boolean based on kind and value:
 * ipaddress
 * network
 
-has_interface_with("macaddress", "x:x:x:x:x:x")
-has_interface_with("ipaddress", "127.0.0.1")    => true
+*Examples:*
+
+    has_interface_with("macaddress", "x:x:x:x:x:x")
+    has_interface_with("ipaddress", "127.0.0.1")    => true
+
 etc.
 
 If no "kind" is given, then the presence of the interface is checked:
-has_interface_with("lo")                        => true
+
+    has_interface_with("lo")                        => true
 
 
 - *Type*: rvalue
@@ -482,6 +489,12 @@ Returns true if the variable passed to this function is an array.
 
 - *Type*: rvalue
 
+is_bool
+--------
+Returns true if the variable passed to this function is a boolean.
+
+- *Type*: rvalue
+
 is_domain_name
 --------------
 Returns true if the string passed to this function is a syntactically correct domain name.
@@ -540,7 +553,7 @@ Returns true if the variable passed to this function is a string.
 
 join
 ----
-This function joins an array into a string using a seperator.
+This function joins an array into a string using a separator.
 
 *Examples:*
 
@@ -698,8 +711,8 @@ Will return: [0,1,2,3,4,5,6,7,8,9]
 
     range("00", "09")
 
-Will return: [0,1,2,3,4,5,6,7,8,9] (Zero padded strings are converted to
-integers automatically)
+Will return: [0,1,2,3,4,5,6,7,8,9] - Zero padded strings are converted to
+integers automatically
 
     range("a", "c")
 
@@ -766,7 +779,7 @@ are replaced by a single character.
 
 str2bool
 --------
-This converts a string to a boolean. This attempt to convert strings that
+This converts a string to a boolean. This attempts to convert strings that
 contain things like: y, 1, t, true to 'true' and strings that contain things
 like: 0, f, n, false, no to 'false'.
 
