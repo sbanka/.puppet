@@ -22,7 +22,7 @@ class zsh_config {
     context => "${homedir}/${id}/.zshrc",
     require  => Exec['copy-default-zshrc'],
     changes => [
-      "set ZSH_THEME blinks",
+      "set ZSH_THEME blinks"
     ],
   }
 }
