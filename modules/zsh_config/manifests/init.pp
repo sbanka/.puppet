@@ -20,7 +20,7 @@ class zsh_config {
   
   augeas { 'zshrc':
     context => "${homedir}/${id}/.zshrc",
-    require  => Exec['copy-default-zshrc']
+    require  => Exec['copy-default-zshrc'],
     changes => [
       "set ZSH_THEME blinks",
     ],
