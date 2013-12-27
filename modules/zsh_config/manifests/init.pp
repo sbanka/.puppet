@@ -31,5 +31,5 @@ class zsh_config {
   #   changes => [
   #     "set ZSH_THEME blinks"
   #   ],
-  }
+  # }
 }
