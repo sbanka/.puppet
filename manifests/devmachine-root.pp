@@ -12,7 +12,9 @@ $desiredPackages = [
   'git',
   'atop',
   'mtr',
-  'mc'
+  'mc',
+  'zsh',
+  'vim'
 ]
 
 # $undesiredPackages = [
