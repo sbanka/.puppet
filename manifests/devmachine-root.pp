@@ -5,6 +5,10 @@ case $::osfamily {
   }
 }
 
+class { '::ntp':
+  servers => [ '0.europe.pool.ntp.org', '2.europe.pool.ntp.org', '0.freebsd.pool.ntp.org' ],
+}
+
 # $mainUser = "simon"
 $mainUser = $id
 
