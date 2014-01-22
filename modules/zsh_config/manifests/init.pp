@@ -29,7 +29,7 @@ class zsh_config {
   file_line { 'zsh-theme-color':
     path    => "${homedir}/${id}/.zshrc",
     require => Exec['copy-default-zshrc'],
-    line    => 'export SOLARIZED_THEME=light',
+    line    => 'export SOLARIZED_THEME=dark',
     after   => '^ZSH_THEME',
   }
   
