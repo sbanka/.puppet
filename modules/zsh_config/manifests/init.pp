@@ -22,15 +22,15 @@ class zsh_config {
   file_line { 'zsh-theme':
     path    => "${homedir}/${id}/.zshrc",
     require => Exec['copy-default-zshrc'],
-    line    => 'ZSH_THEME="blinks"',
+    line    => 'ZSH_THEME="kphoen"',
     match   => '^ZSH_THEME',
   }
   
-  file_line { 'zsh-theme-color':
-    path    => "${homedir}/${id}/.zshrc",
-    require => Exec['copy-default-zshrc'],
-    line    => 'export SOLARIZED_THEME=dark',
-    after   => '^ZSH_THEME',
-  }
+  # file_line { 'zsh-theme-color':
+  #   path    => "${homedir}/${id}/.zshrc",
+  #   require => Exec['copy-default-zshrc'],
+  #   line    => 'export SOLARIZED_THEME=dark',
+  #   after   => '^ZSH_THEME',
+  # }
   
 }
